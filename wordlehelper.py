@@ -9,7 +9,6 @@ allowedchar = set(string.ascii_letters)
 
 #These are the default settings
 maxattempts = 6
-maxlength = 5
 
 #Variable settings for word length, allowing use with wordle variants
 def settings():
@@ -21,6 +20,7 @@ def settings():
         maxlength = int(input("(Between 3 and 12) >   "))
         return
     else:
+        maxlength = 5
         return
 #Need to call settings before anything else gets generated
 settings()
@@ -74,7 +74,7 @@ def inputresponse():
     print(" Y for Yellow")
     print(" X for Grey")
     while True:
-        response = input("Response from Wordle>  ")
+        response = input("Response from Wordle>  ").upper()
         if len(response) == maxlength and set(response) <= {"G", "Y", "X"}:
             break
         else:
